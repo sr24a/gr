@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC25 - ترتيب الدوريات الست الكبرى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1f26;
+            color: #ffffff;
+            direction: rtl; /* الاتجاه من اليمين إلى اليسار */
+        }
+
+        header {
+            background-color: #121417;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* تعديل ترتيب الصور */
+        .header-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-logo img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #2a2e35;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+
+        .league-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .league-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            color: #00ccff;
+            transition: background-color 0.3s ease;
+        }
+
+        .league-list li:hover {
+            background-color: #3a3f4a;
+        }
+
+        .league-list img {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        .summary-button {
+            background-color: #00ccff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .summary-button:hover {
+            background-color: #00a3d9;
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            width: 70%;
+            background-color: #2a2e35;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00ccff;
+            border-bottom: 2px solid #00ccff;
+            padding-bottom: 10px;
+        }
+
+        .league-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #2a2e35;
+            border-radius: 10px;
+        }
+
+        .league-table th, .league-table td {
+            padding: 15px;
+            border: 1px solid #444;
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .league-table th {
+            background-color: #00ccff;
+            color: white;
+        }
+
+        .league-table td {
+            background-color: #1c1f26;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #2a2e35;
+        }
+
+        tr:hover td {
+            background-color: #3a3f4a;
+        }
+
+        .league-summary {
+            margin-top: 20px;
+            background-color: #1c1f26;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .league-summary p {
+            font-size: 1.1em;
+            color: #cccccc;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video {
+            background-color: #1c1f26;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .video:hover {
+            transform: scale(1.05);
+        }
+
+        .video video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .video h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border-radius: 30px;
+            border: 1px solid #444;
+            background-color: #2a2e35;
+            color: white;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .search-container button {
+            background-color: #00ccff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: #00a3d9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-logo">
+        <a href="index.html">
+            <img src="logo.png" alt="FC25 Logo">
+        </a>
+        <a href="indصex.html">
+            
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>الدوريات الكبرى</h2>
+        <ul class="league-list">
+            <li onclick="showLeague('premierLeague')"><img src="eng.png" alt="الدوري الإنجليزي">الدوري الإنجليزي الممتاز</li>
+            <li onclick="showLeague('laLiga')"><img src="la.png" alt="الدوري الإسباني">الدوري الإسباني</li>
+            <li onclick="showLeague('serieA')"><img src="serie.png" alt="الدوري الإيطالي">الدوري الإيطالي</li>
+            <li onclick="showLeague('bundesliga')"><img src="bundesliga.png" alt="الدوري الألماني">الدوري الألماني</li>
+            <li onclick="showLeague('ligue1')"><img src="league.png" alt="الدوري الفرنسي">الدوري الفرنسي</li>
+            <li onclick="showLeague('saudiProLeague')"><img src="SPL.png" alt="الدوري السعودي">الدوري السعودي</li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <button class="summary-button" onclick="showHighlights()">عرض المُلخصات</button>
+        </div>
+        
+    </div>
+
+    <div class="main-content" id="main-content">
+        <h2>اختر دوري لعرض الترتيب والمُلخص</h2>
+    </div>
+</div>
+
+<script>
+    function showLeague(league) {
+        const contentDiv = document.getElementById('main-content');
+
+        // بيانات الدوريات لعام 2024
+        const leaguesData = {
+            premierLeague: {
+                name: 'الدوري الإنجليزي الممتاز',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tbody>
+  <tr><td>1</td><td>مانشستر سيتي</td><td>12</td></tr>
+  <tr><td>2</td><td>أرسنال</td><td>10</td></tr>
+  <tr><td>3</td><td>نيوكاسل يونايتد</td><td>10</td></tr>
+  <tr><td>4</td><td>ليفربول</td><td>9</td></tr>
+  <tr><td>5</td><td>أستون فيلا</td><td>9</td></tr>
+  <tr><td>6</td><td>برايتون وهوف ألبيون</td><td>8</td></tr>
+  <tr><td>7</td><td>نوتنغهام فورست</td><td>8</td></tr>
+  <tr><td>8</td><td>تشيلسي</td><td>7</td></tr>
+  <tr><td>9</td><td>برينتفورد</td><td>6</td></tr>
+  <tr><td>10</td><td>مانشستر يونايتد</td><td>6</td></tr>
+  <tr><td>11</td><td>بورنموث</td><td>5</td></tr>
+  <tr><td>12</td><td>فولهام</td><td>5</td></tr>
+  <tr><td>13</td><td>توتنهام هوتسبير</td><td>4</td></tr>
+  <tr><td>14</td><td>وست هام يونايتد</td><td>4</td></tr>
+  <tr><td>15</td><td>ليستر سيتي</td><td>2</td></tr>
+  <tr><td>16</td><td>كريستال بالاس</td><td>2</td></tr>
+  <tr><td>17</td><td>إيبسويتش تاون</td><td>2</td></tr>
+  <tr><td>18</td><td>وولفرهامبتون واندررز</td><td>1</td></tr>
+  <tr><td>19</td><td>ساوثهامبتون</td><td>0</td></tr>
+  <tr><td>20</td><td>إيفرتون</td><td>0</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'الدوري الإنجليزي يشهد منافسة قوية هذا الموسم بين مانشستر سيتي وأرسنال وليفربول.'
+            },
+            laLiga: {
+                name: 'الدوري الإسباني',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tbody>
+<tr><td>1</td><td>برشلونة</td><td>15</td></tr>
+<tr><td>2</td><td>أتلتيكو مدريد</td><td>11</td></tr>
+<tr><td>3</td><td>ريال مدريد</td><td>11</td></tr>
+<tr><td>4</td><td>فياريال</td><td>11</td></tr>
+<tr><td>5</td><td>أتلتيك بيلباو</td><td>10</td></tr>
+<tr><td>6</td><td>سيلتا فيغو</td><td>9</td></tr>
+<tr><td>7</td><td>ريال بيتيس</td><td>8</td></tr>
+<tr><td>8</td><td>مايوركا</td><td>8</td></tr>
+<tr><td>9</td><td>رايو فاليكانو</td><td>7</td></tr>
+<tr><td>10</td><td>ديبورتيفو ألافيس</td><td>7</td></tr>
+<tr><td>11</td><td>جيرونا</td><td>7</td></tr>
+<tr><td>12</td><td>إسبانيول</td><td>7</td></tr>
+<tr><td>13</td><td>أوساسونا</td><td>7</td></tr>
+<tr><td>14</td><td>إشبيلية</td><td>5</td></tr>
+<tr><td>15</td><td>ليغانيس</td><td>5</td></tr>
+<tr><td>16</td><td>ريال سوسيداد</td><td>4</td></tr>
+<tr><td>17</td><td>ريال بلد الوليد</td><td>4</td></tr>
+<tr><td>18</td><td>خيتافي</td><td>3</td></tr>
+<tr><td>19</td><td>لاس بالماس</td><td>2</td></tr>
+<tr><td>20</td><td>فالنسيا</td><td>1</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'برشلونة يتقدم بفارق نقاط قليل عن ريال مدريد وأتلتيكو مدريد في الدوري الإسباني.'
+            },
+            serieA: {
+                name: 'الدوري الإيطالي',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tbody>
+<tr><td>1</td><td>أودينيزي</td><td>10</td></tr>
+<tr><td>2</td><td>نابولي</td><td>9</td></tr>
+<tr><td>3</td><td>إنتر ميلان</td><td>8</td></tr>
+<tr><td>4</td><td>يوفنتوس</td><td>8</td></tr>
+<tr><td>5</td><td>تورينو</td><td>8</td></tr>
+<tr><td>6</td><td>لاتسيو</td><td>7</td></tr>
+<tr><td>7</td><td>هيلاس فيرونا</td><td>6</td></tr>
+<tr><td>8</td><td>إمبولي</td><td>6</td></tr>
+<tr><td>9</td><td>أتالانتا</td><td>6</td></tr>
+<tr><td>10</td><td>ميلان</td><td>5</td></tr>
+<tr><td>11</td><td>جنوى</td><td>5</td></tr>
+<tr><td>12</td><td>بارما</td><td>4</td></tr>
+<tr><td>13</td><td>ليتشي</td><td>4</td></tr>
+<tr><td>14</td><td>فيورنتينا</td><td>3</td></tr>
+<tr><td>15</td><td>مونزا</td><td>3</td></tr>
+<tr><td>16</td><td>روما</td><td>3</td></tr>
+<tr><td>17</td><td>بولونيا</td><td>3</td></tr>
+<tr><td>18</td><td>كومو</td><td>2</td></tr>
+<tr><td>19</td><td>كالياري</td><td>2</td></tr>
+<tr><td>20</td><td>فينيسيا</td><td>1</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'نابولي يتصدر الدوري الإيطالي مع منافسة قوية من إنتر ميلان ويوفنتوس.'
+            },
+            bundesliga: {
+                name: 'الدوري الألماني',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tbody>
+<tr><td>1</td><td>بايرن ميونخ</td><td>9</td></tr>
+<tr><td>2</td><td>بوروسيا دورتموند</td><td>7</td></tr>
+<tr><td>3</td><td>لايبزيغ</td><td>7</td></tr>
+<tr><td>4</td><td>هايدنهايم</td><td>6</td></tr>
+<tr><td>5</td><td>باير ليفركوزن</td><td>6</td></tr>
+<tr><td>6</td><td>آينتراخت فرانكفورت</td><td>6</td></tr>
+<tr><td>7</td><td>فرايبورغ</td><td>6</td></tr>
+<tr><td>8</td><td>فيردر بريمن</td><td>5</td></tr>
+<tr><td>9</td><td>يونيون برلين</td><td>5</td></tr>
+<tr><td>10</td><td>شتوتغارت</td><td>4</td></tr>
+<tr><td>11</td><td>أوغسبورغ</td><td>4</td></tr>
+<tr><td>12</td><td>فولفسبورغ</td><td>3</td></tr>
+<tr><td>13</td><td>بوروسيا مونشنغلادباخ</td><td>3</td></tr>
+<tr><td>14</td><td>هوفنهايم</td><td>3</td></tr>
+<tr><td>15</td><td>ماينز 05</td><td>2</td></tr>
+<tr><td>16</td><td>بوخوم</td><td>0</td></tr>
+<tr><td>17</td><td>سانت باولي</td><td>0</td></tr>
+<tr><td>18</td><td>هولشتاين كيل</td><td>0</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'بايرن ميونيخ يواصل السيطرة على الدوري الألماني مع منافسة من بوروسيا دورتموند.'
+            },
+            ligue1: {
+                name: 'الدوري الفرنسي',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tbody>
+<tr><td>1</td><td>باريس سان جيرمان</td><td>12</td></tr>
+<tr><td>2</td><td>مارسيليا</td><td>10</td></tr>
+<tr><td>3</td><td>موناكو</td><td>10</td></tr>
+<tr><td>4</td><td>لانس</td><td>8</td></tr>
+<tr><td>5</td><td>نانت</td><td>7</td></tr>
+<tr><td>6</td><td>ريمس</td><td>7</td></tr>
+<tr><td>7</td><td>رين</td><td>6</td></tr>
+<tr><td>8</td><td>ليل</td><td>6</td></tr>
+<tr><td>9</td><td>لو هافر</td><td>6</td></tr>
+<tr><td>10</td><td>ستراسبورغ</td><td>5</td></tr>
+<tr><td>11</td><td>تولوز</td><td>5</td></tr>
+<tr><td>12</td><td>نيس</td><td>4</td></tr>
+<tr><td>13</td><td>ليون</td><td>4</td></tr>
+<tr><td>14</td><td>بريست</td><td>3</td></tr>
+<tr><td>15</td><td>أوكسير</td><td>3</td></tr>
+<tr><td>16</td><td>سانت إتيان</td><td>3</td></tr>
+<tr><td>17</td><td>أنجيه</td><td>1</td></tr>
+<tr><td>18</td><td>مونبلييه</td><td>1</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'باريس سان جيرمان يتصدر الدوري الفرنسي مع مطاردة من مارسيليا وموناكو.'
+            },
+            saudiProLeague: {
+                name: 'الدوري السعودي',
+                table: `
+                    <table class="league-table">
+                        <thead>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الفريق</th>
+                                <th>النقاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tbody>
+<tr><td>1</td><td>الاتحاد</td><td>9</td></tr>
+<tr><td>2</td><td>الهلال</td><td>9</td></tr>
+<tr><td>3</td><td>الاتفاق</td><td>9</td></tr>
+<tr><td>4</td><td>القادسية</td><td>7</td></tr>
+<tr><td>5</td><td>التعاون</td><td>6</td></tr>
+<tr><td>6</td><td>الشباب</td><td>6</td></tr>
+<tr><td>7</td><td>النصر</td><td>5</td></tr>
+<tr><td>8</td><td>الرائد</td><td>4</td></tr>
+<tr><td>9</td><td>الأهلي</td><td>4</td></tr>
+<tr><td>10</td><td>الرياض</td><td>4</td></tr>
+<tr><td>11</td><td>الخلود</td><td>4</td></tr>
+<tr><td>12</td><td>العروبة</td><td>4</td></tr>
+<tr><td>13</td><td>الوحدة</td><td>4</td></tr>
+<tr><td>14</td><td>ضمك</td><td>3</td></tr>
+<tr><td>15</td><td>الخليج</td><td>3</td></tr>
+<tr><td>16</td><td>الفتح</td><td>3</td></tr>
+<tr><td>17</td><td>الأخدود</td><td>1</td></tr>
+<tr><td>18</td><td>الفيحاء</td><td>0</td></tr>
+</tbody>
+                        </tbody>
+                    </table>
+                `,
+                summary: 'الهلال يتصدر الدوري السعودي مع منافسة من الاتحاد والنصر.'
+            }
+        };
+
+        const leagueData = leaguesData[league];
+        contentDiv.innerHTML = `
+            <h2>${leagueData.name}</h2>
+            ${leagueData.table}
+            <div class="league-summary">
+                <p>${leagueData.summary}</p>
+            </div>
+        `;
+    }
+
+    function showHighlights() {
+    const contentDiv = document.getElementById('main-content');
+    contentDiv.innerHTML = `
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="ابحث عن ملخص أو مباراة...">
+            <button onclick="searchHighlights()">بحث</button>
+        </div>
+
+        <h2>ملخصات المباريات</h2>
+        <div class="video-grid" id="video-grid">
+            <div class="video" data-title="ملخص مباراة النصر 1 - 1 الأهلي | الجولة ( 3 ) من دوري روشن السعودي للمحترفين 2024-2025">
+                <video controls>
+                    <source src="a_n1-1.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <h3>ملخص مباراة النصر 1 - 1 الأهلي | الجولة ( 3 ) من دوري روشن السعودي للمحترفين 2024-2025</h3>
+            </div>
+            <div class="video" data-title="ملخص مباراة 2">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <h3>ملخص مباراة 2</h3>
+            </div>
+            <div class="video" data-title="ملخص مباراة 3">
+                <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <h3>ملخص مباراة 3</h3>
+            </div>
+            <div class="video" data-title="ملخص مباراة 4">
+                <video controls>
+                    <source src="video4.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <h3>ملخص مباراة 4</h3>
+            </div>
+        </div>
+    `;
+}
+
+    function searchHighlights() {
+        const searchQuery = document.getElementById('search-input').value.toLowerCase();
+        const videos = document.querySelectorAll('.video');
+
+        videos.forEach(video => {
+            const title = video.getAttribute('data-title').toLowerCase();
+            if (title.includes(searchQuery)) {
+                video.style.display = 'block';
+            } else {
+                video.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

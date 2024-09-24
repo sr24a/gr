@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Duty - FC25</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d; /* خلفية سوداء */
+            color: #fff; /* لون النص الأبيض */
+        }
+
+        header {
+            background-image: url('https://wallpaperaccess.com/full/2702393.jpg'); /* خلفية مميزة من كول أوف ديوتي */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-color: rgba(0, 0, 0, 0.6); /* خلفية شفافة */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        section {
+            padding: 3em;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 1em;
+            font-size: 2em;
+            color: #FFD700;
+        }
+
+        .content-section {
+            margin-top: 3em;
+            text-align: left;
+        }
+
+        .content-section p {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+        }
+
+        .content-section h3 {
+            font-size: 1.5em;
+            color: #FF4500;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #FF0000; /* اللون الأحمر المميز */
+            color: white;
+            font-size: 1.2em;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #cc0000; /* لون داكن عند التمرير */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Call of Duty</h1> <!-- عنوان الصفحة -->
+</header>
+
+<section>
+    <!-- قسم الفيديوهات -->
+    <h2>فيديوهات من اللعبة</h2>
+    <div class="video-container">
+        <video controls>
+            <source src="videos/call-of-duty-clip1.mp4" type="video/mp4">
+            متصفحك لا يدعم عرض الفيديو.
+        </video>
+        <video controls>
+            <source src="videos/call-of-duty-clip2.mp4" type="video/mp4">
+            متصفحك لا يدعم عرض الفيديو.
+        </video>
+        <video controls>
+            <source src="videos/call-of-duty-clip3.mp4" type="video/mp4">
+            متصفحك لا يدعم عرض الفيديو.
+        </video>
+        <video controls>
+            <source src="videos/call-of-duty-clip4.mp4" type="video/mp4">
+            متصفحك لا يدعم عرض الفيديو.
+        </video>
+    </div>
+
+    <!-- قسم آخر الأخبار -->
+    <div class="content-section">
+        <h2>آخر الأخبار</h2>
+        <h3>آخر تحديثات اللعبة</h3>
+        <p>تعرف على كل جديد في عالم "كول أوف ديوتي" من خلال آخر التحديثات والتغييرات التي تم إضافتها للعبة.</p>
+        
+        <h3>إطلاق خريطة جديدة</h3>
+        <p>اكتشف الخريطة الجديدة التي ستكون متاحة في التحديث القادم وكيفية استغلالها بشكل أفضل.</p>
+    </div>
+
+    <!-- قسم النصائح والإرشادات -->
+    <div class="content-section">
+        <h2>نصائح وإرشادات</h2>
+        <h3>نصائح للفوز في الباتل رويال</h3>
+        <p>استراتيجيات لتكون الأخير واقفاً في نمط الباتل رويال. قم بتحسين تكتيكاتك واستغل البيئة لصالحك!</p>
+        
+        <h3>أفضل أسلحة الموسم</h3>
+        <p>قائمة بأفضل الأسلحة لهذا الموسم وكيفية استخدامها بكفاءة. احصل على ميزة تنافسية باختيار الأسلحة المناسبة.</p>
+    </div>
+
+    <!-- قسم الأحداث والمنافسات -->
+    <div class="content-section">
+        <h2>أحداث ومنافسات</h2>
+        <h3>بطولات قادمة</h3>
+        <p>تعرف على البطولات والمنافسات القادمة وكيف يمكنك المشاركة فيها للحصول على جوائز قيّمة.</p>
+        
+        <h3>تحديات أسبوعية</h3>
+        <p>شارك في التحديات الأسبوعية واكسب جوائز حصرية وميداليات تقديرية.</p>
+    </div>
+
+    <div class="buttons-container">
+        <a href="#" class="cta-button">تحميل اللعبة</a>
+        <a href="#" class="cta-button">آخر التحديثات</a>
+        <a href="#" class="cta-button">الأخبار</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 FC25 - كل الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>

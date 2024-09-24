@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة منقسمة</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #d6e6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            width: 80%;
+            height: 90vh;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .left, .right {
+            width: 50%;
+            padding: 40px;
+        }
+
+        .left {
+            text-align: right;
+        }
+
+        .right {
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: #28b463;
+            color: #fff;
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* الشقوق في المنتصف */
+        .middle-crack {
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: transparent;
+            clip-path: polygon(50% 0%, 60% 20%, 50% 40%, 60% 60%, 50% 80%, 50% 100%);
+            box-shadow: -10px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <h2>عنوان القسم الأيسر</h2>
+        <p>
+            بعض النصوص التوضيحية هنا في الجانب الأيسر. يمكن أن تكون هذه النصوص تعليمات أو معلومات عن القسم.
+        </p>
+        <button class="button">زر إضافي</button>
+    </div>
+
+    <!-- الشق في المنتصف -->
+    <div class="middle-crack"></div>
+
+    <div class="logo">
+        شعار
+    </div>
+
+    <div class="right">
+        <h2>عنوان القسم الأيمن</h2>
+        <p>
+            بعض النصوص التوضيحية هنا في الجانب الأيمن. يمكن أن تكون هذه النصوص تعليمات أو معلومات عن القسم.
+        </p>
+        <button class="button">زر إضافي</button>
+    </div>
+</div>
+
+</body>
+</html>
